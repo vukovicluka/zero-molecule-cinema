@@ -1,0 +1,19 @@
+.wrapper {
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-container {
+  height: 431px;
+  width: 334px;
+}
+
+img {
+  width: 674px;
+  height: 736px;
+  object-fit: contain;
+}
