@@ -6,10 +6,12 @@ import MainImg from '../../assets/images/main.png';
 const Main = () => {
   return (
     <div className='wrapper'>
-      <Title>Your movie list is empty</Title>
-      <button>Create a new movie</button>
+      <div className='main-content'>
+        <Title>Your movie list is empty</Title>
+        <button className='addBtn'>Create a new movie</button>
+      </div>
       <figure>
-        <img src={MainImg} alt='Main' />
+        <img src={MainImg} alt='Main' className='mainImg' />
       </figure>
     </div>
   );
