@@ -27,3 +27,14 @@ export const deleteMovie = (authToken, movieId) => {
     },
   });
 };
+
+export const updateMovie = (authToken, movieId, movieData) => {
+  return fetch(`${apiOrigin}/movies/${movieId}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(movieData),
+  }).then((res) => res.json());
+};
