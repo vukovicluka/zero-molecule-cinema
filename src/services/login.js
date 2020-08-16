@@ -1,7 +1,7 @@
-import API from './api';
+import apiOrigin from './api';
 
 export const loginUser = (data) => {
-  return fetch(`${API}/auth/local`, {
+  return fetch(`${apiOrigin}/auth/local`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
