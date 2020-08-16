@@ -7,3 +7,14 @@ export const getMovies = (authToken) => {
     },
   }).then((res) => res.json());
 };
+
+export const createMovie = (authToken, movieData) => {
+  return fetch(`${apiOrigin}/movies`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(movieData),
+  }).then((res) => res.json());
+};
