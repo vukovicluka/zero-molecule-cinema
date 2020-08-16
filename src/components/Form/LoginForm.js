@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
-import Title from '../Title/Title';
 import { loginUser } from '../../services/login';
 
 const Form = () => {
@@ -34,7 +33,6 @@ const Form = () => {
 
   return (
     <>
-      <Title>Login</Title>
       <form className='form' onSubmit={handleSubmit(onSubmit)}>
         <div className='form-row'>
           <label htmlFor='identifier' className='form-label'>
