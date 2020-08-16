@@ -24,6 +24,7 @@ const Form = () => {
     try {
       const result = await loginUser(data);
       if (result.jwt) {
+        localStorage.setItem('token', result.jwt);
         history.push('/main');
       }
     } catch (error) {
@@ -48,7 +49,7 @@ const Form = () => {
             onChange={handleChange}
             ref={register({ required: true })}
           />
-          {errors.email && <p className='error'>Email can not be empty</p>}
+          {errors.identifier && <p className='error'>Email can not be empty</p>}
         </div>
         <div className='form-row'>
           <label htmlFor='password' className='form-label'>
