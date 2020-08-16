@@ -18,3 +18,12 @@ export const createMovie = (authToken, movieData) => {
     body: JSON.stringify(movieData),
   }).then((res) => res.json());
 };
+
+export const deleteMovie = (authToken, movieId) => {
+  return fetch(`${apiOrigin}/movies/${movieId}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+};

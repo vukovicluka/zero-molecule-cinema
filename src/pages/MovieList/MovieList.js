@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './MovieList.css';
 import Title from '../../components/Title/Title';
-import { getMovies } from '../../services/movies';
+import { getMovies, deleteMovie } from '../../services/movies';
 
 const MovieList = () => {
   const [movies, setMovies] = useState('');
 
   useEffect(() => {
     getMovies(localStorage.getItem('token')).then((res) => {
-      console.log(res);
       setMovies(res);
     });
   }, []);
 
   const handleDelete = (id) => {
-    const newMovies = movies.filter((movie) => movie.id !== id);
-    setMovies(newMovies);
+    // console.log(id);
+    deleteMovie(localStorage.getItem('token'), id);
+    setMovies(movies.filter((movie) => movie.id !== id));
   };
 
   return (
@@ -35,7 +35,7 @@ const MovieList = () => {
             movies.map((movie) => (
               <tr key={movie.id}>
                 <td>
-                  <img src={movie.cover} alt='cover' className='coverImg' />
+                  <img src={movie.poster} alt='poster' className='coverImg' />
                 </td>
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>

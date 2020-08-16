@@ -20,10 +20,6 @@ const NewMovieForm = () => {
     });
   };
 
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  // };
-
   const onSubmit = async (e) => {
     try {
       const createdMovie = await createMovie(
@@ -31,9 +27,9 @@ const NewMovieForm = () => {
         data
       );
       if (createdMovie) {
-        console.log('success');
+        history.push('/movieList');
       } else {
-        console.log('ERRROROROR');
+        console.log('Error!');
       }
     } catch (error) {
       console.log(error);

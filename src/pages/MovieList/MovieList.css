@@ -7,22 +7,22 @@ table {
   width: 100%;
   margin-top: 50px;
   border-collapse: collapse;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 th {
-  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 23px;
   color: #000000;
+  padding-bottom: 30px;
 }
 
 td {
   border-bottom: 1px solid #bcbcbc;
-  padding: 27px 0;
+  padding: 20px 0;
 
-  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -56,19 +56,11 @@ th:last-child {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  /* background-color: darkgreen; */
 }
 
 .editBtn {
-  color: #000000;
   padding-right: 45px;
-  margin-bottom: 5px;
-}
-
-.deleteBtn {
-  color: #cf1313;
-  padding-right: 35px;
-  margin-top: 5px;
+  margin-bottom: 7px;
   background: none;
   border: none;
 
@@ -76,9 +68,24 @@ th:last-child {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-
   text-align: center;
   text-decoration-line: underline;
+  color: #000000;
+}
 
+.deleteBtn {
+  color: #cf1313;
+  padding-right: 35px;
+  margin-top: 7px;
+  background: none;
+  border: none;
+  outline: none;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration-line: underline;
   color: #cf1313;
 }
