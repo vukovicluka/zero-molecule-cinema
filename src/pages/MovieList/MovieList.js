@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import './MovieList.css';
 import Title from '../../components/Title/Title';
 import { getMovies, deleteMovie } from '../../services/movies';
 
-const MovieList = () => {
+const MovieList = (props) => {
   const [movies, setMovies] = useState('');
-
+  const history = useHistory();
   useEffect(() => {
     getMovies(localStorage.getItem('token')).then((res) => {
       setMovies(res);
@@ -13,9 +14,15 @@ const MovieList = () => {
   }, []);
 
   const handleDelete = (id) => {
-    // console.log(id);
     deleteMovie(localStorage.getItem('token'), id);
     setMovies(movies.filter((movie) => movie.id !== id));
+  };
+
+  const handleEdit = (movie) => {
+    props.history.push({
+      pathname: '/main',
+      movie,
+    });
   };
 
   return (
@@ -40,11 +47,10 @@ const MovieList = () => {
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>
                 <td className='options'>
-                  <button href='/' className='editBtn'>
+                  <button className='editBtn' onClick={handleEdit(movie)}>
                     Edit
                   </button>
                   <button
-                    href='/'
                     className='deleteBtn'
                     onClick={() => handleDelete(movie.id)}
                   >

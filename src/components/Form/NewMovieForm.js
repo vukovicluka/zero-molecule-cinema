@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
-import NewMovieImg from '../../assets/images/newMovieImg.png';
 import { createMovie } from '../../services/movies';
 
 const NewMovieForm = () => {
@@ -79,9 +78,6 @@ const NewMovieForm = () => {
           <button className='submitBtn'>Create</button>
         </div>
       </form>
-      <figure>
-        <img src={NewMovieImg} alt='Tree' className='newMovieImg' />
-      </figure>
     </div>
   );
 };
