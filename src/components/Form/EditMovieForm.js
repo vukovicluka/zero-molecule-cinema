@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
-import { createMovie } from '../../services/movies';
+import { updateMovie } from '../../services/movies';
 
-const EditMovieForm = (props) => {
-  const { title, year } = (props.location && props.location.state) || {};
-
+const EditMovieForm = ({ movieData }) => {
+  const { id, title, year } = movieData;
   const [data, setData] = useState({
     title: '',
     year: '',
@@ -14,12 +13,12 @@ const EditMovieForm = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
 
-  //   useEffect(() => {
-  //     setData({
-  //       title: title,
-  //       year: year,
-  //     });
-  //   }, []);
+  useEffect(() => {
+    setData({
+      title,
+      year,
+    });
+  }, []);
 
   const handleChange = (e) => {
     setData({
@@ -28,13 +27,14 @@ const EditMovieForm = (props) => {
     });
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = async () => {
     try {
-      const createdMovie = await createMovie(
+      const updatedMovie = await updateMovie(
         localStorage.getItem('token'),
+        id,
         data
       );
-      if (createdMovie) {
+      if (updatedMovie) {
         history.push('/movieList');
       } else {
         console.log('Error!');
@@ -83,8 +83,15 @@ const EditMovieForm = (props) => {
           <div className='drop'>Drop image here</div>
         </div>
         <div className='buttonsRow'>
-          <button className='cancelBtn'>Cancel</button>
-          <button className='submitBtn'>Create</button>
+          <button
+            className='cancelBtn'
+            onClick={() => history.push('/movieList')}
+          >
+            Cancel
+          </button>
+          <button type='submit' className='submitBtn'>
+            Update
+          </button>
         </div>
       </form>
     </div>
