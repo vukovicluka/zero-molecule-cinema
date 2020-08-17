@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
 import { loginUser } from '../../services/login';
+import { AuthContext } from '../../context/AuthContext';
+import { getMovies } from '../../services/movies';
 
 const Form = () => {
   const [data, setData] = useState({
@@ -11,6 +13,7 @@ const Form = () => {
   });
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
+  const { setIsAuth } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setData({
@@ -19,12 +22,19 @@ const Form = () => {
     });
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = async () => {
     try {
       const result = await loginUser(data);
       if (result.jwt) {
         localStorage.setItem('token', result.jwt);
-        history.push('/main');
+        setIsAuth(true);
+        getMovies(localStorage.getItem('token')).then((res) => {
+          if (res.length > 0) {
+            history.push('/movieList');
+          } else {
+            history.push('/main');
+          }
+        });
       }
     } catch (error) {
       console.log(error);
