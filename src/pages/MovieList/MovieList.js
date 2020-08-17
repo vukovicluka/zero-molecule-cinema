@@ -34,7 +34,7 @@ const MovieList = () => {
           className='movieList_btnNew'
           onClick={() => history.push('/newMovie')}
         >
-          Add new<span>+</span>
+          Add new<span>&#43;</span>
         </button>
       </div>
       <table>
@@ -56,15 +56,20 @@ const MovieList = () => {
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>
                 <td className='options'>
-                  <button className='editBtn' onClick={() => handleEdit(movie)}>
-                    Edit
-                  </button>
-                  <button
-                    className='deleteBtn'
-                    onClick={() => handleDelete(movie.id)}
-                  >
-                    Delete
-                  </button>
+                  <div className='optionsContainer'>
+                    <button
+                      className='editBtn'
+                      onClick={() => handleEdit(movie)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className='deleteBtn'
+                      onClick={() => handleDelete(movie.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

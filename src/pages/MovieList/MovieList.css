@@ -52,22 +52,26 @@ th:last-child {
 }
 
 .options {
+  text-align: right;
+  height: 100%;
+}
+
+.optionsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-end;
 }
 
 .editBtn {
-  padding-right: 45px;
-  margin-bottom: 7px;
   color: #000000;
+  padding-right: 45px;
+  margin-bottom: 10px;
 }
 
 .deleteBtn {
-  padding-right: 35px;
-  margin-top: 7px;
   color: #cf1313;
+  padding-right: 35px;
+  margin-top: 10px;
 }
 
 .editBtn,
@@ -81,6 +85,7 @@ th:last-child {
   line-height: 22px;
   text-align: center;
   text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .movieList_header {
@@ -106,4 +111,13 @@ th:last-child {
 
 .movieList_btnNew:hover {
   color: #d6044a;
+}
+
+.movieList_btnNew span {
+  margin-left: 3px;
+  transition: all 0.2s;
+}
+
+.movieList_btnNew:hover span {
+  margin-left: 8px;
 }
