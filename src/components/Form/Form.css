@@ -73,6 +73,7 @@
   width: 334px;
   height: 48px;
   margin-top: 13px;
+  outline: none;
 
   font-style: normal;
   font-weight: 600;
@@ -92,6 +93,7 @@
   border: none;
   width: 179px;
   height: 48px;
+  outline: none;
 
   font-style: normal;
   font-weight: 600;
@@ -113,6 +115,7 @@
   border: 1px solid #bcbcbc;
   box-sizing: border-box;
   border-radius: 5px;
+  outline: none;
 
   font-style: normal;
   font-weight: 600;

@@ -74,8 +74,12 @@ const NewMovieForm = () => {
           <div className='drop'>Drop image here</div>
         </div>
         <div className='buttonsRow'>
-          <button className='cancelBtn'>Cancel</button>
-          <button className='submitBtn'>Create</button>
+          <button className='cancelBtn' onClick={() => history.goBack()}>
+            Cancel
+          </button>
+          <button type='submit' className='submitBtn'>
+            Create
+          </button>
         </div>
       </form>
     </div>

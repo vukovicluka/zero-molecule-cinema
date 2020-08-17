@@ -4,7 +4,7 @@ import './MovieList.css';
 import Title from '../../components/Title/Title';
 import { getMovies, deleteMovie } from '../../services/movies';
 
-const MovieList = (props) => {
+const MovieList = () => {
   const [movies, setMovies] = useState('');
   const history = useHistory();
   useEffect(() => {
@@ -19,15 +19,24 @@ const MovieList = (props) => {
   };
 
   const handleEdit = (movie) => {
-    props.history.push({
-      pathname: '/main',
-      movie,
+    // console.log(`${movie.id}`);
+    history.push({
+      pathname: '/editMovie',
+      state: { movie: movie },
     });
   };
 
   return (
     <div className='movieList-wrapper'>
-      <Title>Movies</Title>
+      <div className='movieList_header'>
+        <Title>Movies</Title>
+        <button
+          className='movieList_btnNew'
+          onClick={() => history.push('/newMovie')}
+        >
+          Add new<span>+</span>
+        </button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -47,7 +56,7 @@ const MovieList = (props) => {
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>
                 <td className='options'>
-                  <button className='editBtn' onClick={handleEdit(movie)}>
+                  <button className='editBtn' onClick={() => handleEdit(movie)}>
                     Edit
                   </button>
                   <button

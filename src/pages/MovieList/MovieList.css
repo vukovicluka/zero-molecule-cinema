@@ -61,31 +61,49 @@ th:last-child {
 .editBtn {
   padding-right: 45px;
   margin-bottom: 7px;
-  background: none;
-  border: none;
-
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-  text-decoration-line: underline;
   color: #000000;
 }
 
 .deleteBtn {
-  color: #cf1313;
   padding-right: 35px;
   margin-top: 7px;
-  background: none;
+  color: #cf1313;
+}
+
+.editBtn,
+.deleteBtn {
+  background: transparent;
   border: none;
   outline: none;
-
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
   text-decoration-line: underline;
-  color: #cf1313;
+}
+
+.movieList_header {
+  display: flex;
+  align-items: center;
+}
+
+.movieList_btnNew {
+  border: none;
+  border-bottom: 1px solid currentColor;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fd0157;
+  cursor: pointer;
+  padding-bottom: 2px;
+  margin-top: 11px;
+  margin-left: 40px;
+  display: inline-block;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.movieList_btnNew:hover {
+  color: #d6044a;
 }
