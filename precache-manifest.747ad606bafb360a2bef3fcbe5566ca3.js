@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12f7b4d91bc5ed7aa7fe08f84a6996d8",
+    "revision": "dd853f961e363f2c0e3ecc01713ac29f",
     "url": "/zero-molecule-cinema/index.html"
   },
   {
-    "revision": "3f37608e371f65ac0a59",
+    "revision": "cf8bfe5de4dd5d725725",
     "url": "/zero-molecule-cinema/static/css/main.1dd1625b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/zero-molecule-cinema/static/js/2.7fbd6ad3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3f37608e371f65ac0a59",
-    "url": "/zero-molecule-cinema/static/js/main.b770a674.chunk.js"
+    "revision": "cf8bfe5de4dd5d725725",
+    "url": "/zero-molecule-cinema/static/js/main.ab8beacd.chunk.js"
   },
   {
     "revision": "d1f791085b28e359a957",
