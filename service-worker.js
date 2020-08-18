@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/zero-molecule-cinema/precache-manifest.cdc4a3f35a2f34349285d65b08988652.js"
+  "/zero-molecule-cinema/precache-manifest.cd9d6e6f8861ae4b6496a31f9a044ada.js"
 );
 
 self.addEventListener('message', (event) => {
