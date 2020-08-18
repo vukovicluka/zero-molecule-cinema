@@ -25,10 +25,19 @@ const App = () => {
       {isAuth === true || isAuth === false ? (
         <>
           <Route exact path='/zero-molecule-cinema' component={Login} />
-          <PrivateRoute path='/main' component={Main} />
-          <PrivateRoute path='/newMovie' component={NewMovie} />
-          <PrivateRoute path='/movieList' component={MovieList} />
-          <PrivateRoute path='/editMovie' component={EditMovie} />
+          <PrivateRoute path='/zero-molecule-cinema/main' component={Main} />
+          <PrivateRoute
+            path='/zero-molecule-cinema/newMovie'
+            component={NewMovie}
+          />
+          <PrivateRoute
+            path='/zero-molecule-cinema/movieList'
+            component={MovieList}
+          />
+          <PrivateRoute
+            path='/zero-molecule-cinema/editMovie'
+            component={EditMovie}
+          />
         </>
       ) : null}
     </>
