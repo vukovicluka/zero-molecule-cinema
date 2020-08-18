@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
@@ -7,22 +7,11 @@ import { AuthContext } from '../../context/AuthContext';
 import { getMovies } from '../../services/movies';
 
 const Form = () => {
-  const [data, setData] = useState({
-    identifier: '',
-    password: '',
-  });
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
   const { setIsAuth } = useContext(AuthContext);
 
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     try {
       const result = await loginUser(data);
       if (result.jwt) {
@@ -51,10 +40,7 @@ const Form = () => {
           <input
             type='text'
             name='identifier'
-            id='identifier'
             className='form-input'
-            value={data.identifier}
-            onChange={handleChange}
             ref={register({ required: true })}
           />
           {errors.identifier && <p className='error'>Email can not be empty</p>}
@@ -66,10 +52,7 @@ const Form = () => {
           <input
             type='password'
             name='password'
-            id='password'
             className='form-input'
-            value={data.password}
-            onChange={handleChange}
             ref={register({ required: true })}
           />
           {errors.password && (
