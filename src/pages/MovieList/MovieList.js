@@ -20,7 +20,7 @@ const MovieList = () => {
 
   const handleEdit = (movie) => {
     history.push({
-      pathname: '/editMovie',
+      pathname: '/zero-molecule-cinema/editMovie',
       state: { movie },
     });
   };
@@ -31,7 +31,7 @@ const MovieList = () => {
         <Title>Movies</Title>
         <button
           className='movieList_btnNew'
-          onClick={() => history.push('/newMovie')}
+          onClick={() => history.push('/zero-molecule-cinema/newMovie')}
         >
           Add new<span>&#43;</span>
         </button>
@@ -51,7 +51,7 @@ const MovieList = () => {
               <tr key={movie.id}>
                 <td>
                   <img
-                    src={movie.poster.url}
+                    src={movie.poster.url ? movie.poster.url : null}
                     alt='poster'
                     className='coverImg'
                   />

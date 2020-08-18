@@ -22,7 +22,7 @@ const NewMovieForm = () => {
         formData
       );
       if (createdMovie) {
-        history.push('/movieList');
+        history.push('/zero-molecule-cinema/movieList');
       } else {
         console.log('Error!');
       }

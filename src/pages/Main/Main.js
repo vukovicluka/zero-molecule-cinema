@@ -11,7 +11,10 @@ const Main = () => {
     <div className='main-wrapper'>
       <div className='main-content'>
         <Title>Your movie list is empty</Title>
-        <button className='addBtn' onClick={() => history.push('/newMovie')}>
+        <button
+          className='addBtn'
+          onClick={() => history.push('/zero-molecule-cinema/newMovie')}
+        >
           Create a new movie
         </button>
       </div>

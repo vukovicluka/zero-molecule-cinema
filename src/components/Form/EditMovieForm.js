@@ -33,11 +33,7 @@ const EditMovieForm = ({ movieData }) => {
     const formData = new FormData();
     const stringData = { title: data.title, year: data.year };
     formData.append('data', JSON.stringify(stringData));
-
-    // const posterData = files.length > 0 ? files[0] : poster;
     formData.append('files.poster', files[0]);
-
-    // console.log(...formData);
 
     try {
       const updatedMovie = await updateMovie(
@@ -46,7 +42,7 @@ const EditMovieForm = ({ movieData }) => {
         formData
       );
       if (updatedMovie) {
-        history.push('/movieList');
+        history.push('/zero-molecule-cinema/movieList');
       } else {
         console.log('Error!');
       }

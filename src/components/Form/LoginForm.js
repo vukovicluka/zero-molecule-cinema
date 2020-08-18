@@ -19,9 +19,9 @@ const Form = () => {
         setIsAuth(true);
         getMovies(localStorage.getItem('token')).then((res) => {
           if (res.length > 0) {
-            history.push('/movieList');
+            history.push('/zero-molecule-cinema/movieList');
           } else {
-            history.push('/main');
+            history.push('/zero-molecule-cinema/main');
           }
         });
       }
