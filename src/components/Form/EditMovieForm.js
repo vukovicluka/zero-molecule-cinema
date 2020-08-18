@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
 import { updateMovie } from '../../services/movies';
+import Dropzone from '../Dropzone/Dropzone';
 
 const EditMovieForm = ({ movieData }) => {
-  const { id, title, year } = movieData;
+  const { id, title, year, poster } = movieData;
   const [data, setData] = useState({
     title: '',
     year: '',
   });
+  const [files, setFiles] = useState([]);
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
 
@@ -27,12 +29,21 @@ const EditMovieForm = ({ movieData }) => {
     });
   };
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    const stringData = { title: data.title, year: data.year };
+    formData.append('data', JSON.stringify(stringData));
+
+    // const posterData = files.length > 0 ? files[0] : poster;
+    formData.append('files.poster', files[0]);
+
+    // console.log(...formData);
+
     try {
       const updatedMovie = await updateMovie(
         localStorage.getItem('token'),
         id,
-        data
+        formData
       );
       if (updatedMovie) {
         history.push('/movieList');
@@ -54,7 +65,6 @@ const EditMovieForm = ({ movieData }) => {
           <input
             type='text'
             name='title'
-            id='title'
             className='form-input'
             value={data.title}
             onChange={handleChange}
@@ -69,7 +79,6 @@ const EditMovieForm = ({ movieData }) => {
           <input
             type='text'
             name='year'
-            id='year'
             className='form-input'
             value={data.year}
             onChange={handleChange}
@@ -77,10 +86,10 @@ const EditMovieForm = ({ movieData }) => {
           />
         </div>
         <div className='form-row'>
-          <label htmlFor='cover' className='form-label'>
+          <label htmlFor='poster' className='form-label'>
             Cover image*
           </label>
-          <div className='drop'>Drop image here</div>
+          <Dropzone files={files} setFiles={setFiles} poster={poster} />
         </div>
         <div className='buttonsRow'>
           <button

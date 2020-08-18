@@ -13,9 +13,8 @@ export const createMovie = (authToken, movieData) => {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${authToken}`,
-      'Content-type': 'application/json',
     },
-    body: JSON.stringify(movieData),
+    body: movieData,
   }).then((res) => res.json());
 };
 
@@ -33,8 +32,7 @@ export const updateMovie = (authToken, movieId, movieData) => {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${authToken}`,
-      'Content-type': 'application/json',
     },
-    body: JSON.stringify(movieData),
+    body: movieData,
   }).then((res) => res.json());
 };

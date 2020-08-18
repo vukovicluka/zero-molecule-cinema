@@ -19,10 +19,9 @@ const MovieList = () => {
   };
 
   const handleEdit = (movie) => {
-    // console.log(`${movie.id}`);
     history.push({
       pathname: '/editMovie',
-      state: { movie: movie },
+      state: { movie },
     });
   };
 
@@ -51,7 +50,11 @@ const MovieList = () => {
             movies.map((movie) => (
               <tr key={movie.id}>
                 <td>
-                  <img src={movie.poster} alt='poster' className='coverImg' />
+                  <img
+                    src={movie.poster.url}
+                    alt='poster'
+                    className='coverImg'
+                  />
                 </td>
                 <td>{movie.title}</td>
                 <td>{movie.year}</td>

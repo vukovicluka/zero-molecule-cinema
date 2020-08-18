@@ -44,21 +44,22 @@
   color: #d62c2c;
 }
 
-.drop {
-  width: 329px;
-  height: 128px;
-  border: 2px dashed #bcbcbc;
-  border-radius: 5px;
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.imageContainer {
+  display: 'flex';
+  flex-wrap: 'wrap';
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
 
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 23px;
-  color: #8f8f8f;
+.img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.dropText {
+  width: 200px;
+  height: 40px;
 }
 
 .buttonsRow {
@@ -67,46 +68,35 @@
   justify-content: space-between;
 }
 
-.loginBtn {
+.loginBtn,
+.submitBtn {
   background-color: #fd0157;
-  border-radius: 5px;
   border: none;
-  width: 334px;
-  height: 48px;
-  margin-top: 13px;
-  outline: none;
-
+  border-radius: 5px;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 23px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
+  outline: none;
 }
 
-.loginBtn:hover {
+.loginBtn {
+  width: 334px;
+  height: 48px;
+  margin-top: 13px;
+}
+
+.loginBtn:hover,
+.submitBtn:hover {
   background-color: #d8064c;
 }
 
 .submitBtn {
-  background-color: #fd0157;
-  border-radius: 5px;
-  border: none;
   width: 179px;
   height: 48px;
-  outline: none;
-
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 23px;
-  text-align: center;
-
-  color: #ffffff;
-}
-
-.submitBtn:hover {
-  background-color: #d8064c;
 }
 
 .cancelBtn {
@@ -116,6 +106,7 @@
   border: 1px solid #bcbcbc;
   box-sizing: border-box;
   border-radius: 5px;
+  cursor: pointer;
   outline: none;
 
   font-style: normal;

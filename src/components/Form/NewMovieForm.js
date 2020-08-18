@@ -3,27 +3,23 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './Form.css';
 import { createMovie } from '../../services/movies';
+import Dropzone from '../Dropzone/Dropzone';
 
 const NewMovieForm = () => {
-  const [data, setData] = useState({
-    title: '',
-    year: '',
-  });
+  const [files, setFiles] = useState([]);
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
 
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    const stringData = { title: data.title, year: data.year };
+    formData.append('data', JSON.stringify(stringData));
+    formData.append('files.poster', files[0]);
 
-  const onSubmit = async (e) => {
     try {
       const createdMovie = await createMovie(
         localStorage.getItem('token'),
-        data
+        formData
       );
       if (createdMovie) {
         history.push('/movieList');
@@ -45,10 +41,7 @@ const NewMovieForm = () => {
           <input
             type='text'
             name='title'
-            id='title'
             className='form-input'
-            value={data.title}
-            onChange={handleChange}
             ref={register({ required: true })}
           />
           {errors.title && <p className='error'>Title can not be empty</p>}
@@ -60,18 +53,15 @@ const NewMovieForm = () => {
           <input
             type='text'
             name='year'
-            id='year'
             className='form-input'
-            value={data.year}
-            onChange={handleChange}
             ref={register}
           />
         </div>
         <div className='form-row'>
-          <label htmlFor='cover' className='form-label'>
+          <label htmlFor='poster' className='form-label'>
             Cover image*
           </label>
-          <div className='drop'>Drop image here</div>
+          <Dropzone files={files} setFiles={setFiles} />
         </div>
         <div className='buttonsRow'>
           <button className='cancelBtn' onClick={() => history.goBack()}>

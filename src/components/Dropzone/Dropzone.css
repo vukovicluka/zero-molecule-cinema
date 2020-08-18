@@ -1,0 +1,12 @@
+.imageContainer {
+  display: 'flex';
+  flex-wrap: 'wrap';
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
