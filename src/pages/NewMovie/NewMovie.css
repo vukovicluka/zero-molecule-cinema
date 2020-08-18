@@ -1,0 +1,16 @@
+.newMovie-wrapper {
+  height: 100vh;
+  width: 100%;
+  padding: 120px 0 0 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.newMovieImg {
+  width: 526px;
+  height: 824px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 113px;
+}

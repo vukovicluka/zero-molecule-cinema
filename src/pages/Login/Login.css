@@ -1,0 +1,14 @@
+.login-wrapper {
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  width: 674px;
+  height: 736px;
+  object-fit: contain;
+}
